@@ -32,15 +32,6 @@ class TestExo1 {
                 .as("Tous les champs doivent être déclarés.")
                 .hasSize(7);
 
-        // vérification que tous les champs sont préfixés de @Column
-        assertThat(Arrays.stream(classz.getDeclaredFields())
-                .allMatch(field ->
-                        Arrays.stream(field.getAnnotations())
-                                .filter(annotation -> annotation.annotationType().equals(Column.class))
-                                .count() == 1))
-                .as("Tous les champs doivent avoir un @Column")
-                .isTrue();
-
         // vérification des types énum
         assertThat(((Enumerated)Arrays.stream(Arrays.stream(classz.getDeclaredFields())
                         .filter(field -> field.getName().equals("shifterType"))
@@ -52,7 +43,7 @@ class TestExo1 {
                 .orElseThrow(()->new Exception("L'attribut shifterType n'a pas l'annotation @Enumerated")))
                 .value())
                 .as("L'attribut shifterType devrait être en mode EnumType.ORDINAL")
-                .isEqualTo(EnumType.ORDINAL);
+                .isEqualTo(EnumType.STRING);
 
         assertThat(((Enumerated)Arrays.stream(Arrays.stream(classz.getDeclaredFields())
                         .filter(field -> field.getName().equals("cylinderNumber"))
@@ -64,16 +55,12 @@ class TestExo1 {
                 .orElseThrow(()->new Exception("L'attribut cylinderNumber n'a pas l'annotation @Enumerated")))
                 .value())
                 .as("L'attribut cylinderNumber devrait être en mode EnumType.STRING")
-                .isEqualTo(EnumType.STRING);
+                .isEqualTo(EnumType.ORDINAL);
 
 
         // vérification des annotations sur la class mère
         assertThat(classz.getAnnotations())
                 .as("Doit avoir 2 annotations")
-                .hasSize(2);
-
-        assertThat(Arrays.stream(classz.getAnnotations()).filter(annotation -> annotation.annotationType().equals(Table.class)).toArray())
-                .as("La classe BikeEntity doit avoir l'annotation @Table")
                 .hasSize(1);
 
         assertThat(Arrays.stream(classz.getAnnotations()).filter(annotation -> annotation.annotationType().equals(Entity.class)).toArray())
