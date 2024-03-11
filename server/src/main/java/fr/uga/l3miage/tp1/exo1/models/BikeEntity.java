@@ -30,7 +30,7 @@ public class BikeEntity {
 
     @Column(name = "shifter_type",length = 8)
     @Enumerated(EnumType.STRING)
-    private String shifterType;
+    private ShifterType shifterType;
 
     @Column(name= "date")
     private LocalDate circulationDate;
