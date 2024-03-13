@@ -4,6 +4,7 @@ package fr.uga.l3miage.tp1.exo2.models;
 import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
 public class Session {
 
     @Id

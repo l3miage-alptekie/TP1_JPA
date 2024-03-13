@@ -4,6 +4,7 @@ package fr.uga.l3miage.tp1.exo2.models;
 import javax.persistence.*;
 import java.time.OffsetDateTime;
 
+@Entity
 public class User {
 
     @Id

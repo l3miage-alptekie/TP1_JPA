@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.math.BigInteger;
 import fr.uga.l3miage.tp1.exo2.enums.Sex;
 
-
+@Entity
 public class NetflixUserEntity {
 
     @Id
