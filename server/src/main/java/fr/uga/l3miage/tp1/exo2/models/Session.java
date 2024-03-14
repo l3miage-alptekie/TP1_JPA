@@ -17,6 +17,6 @@ public class Session {
     private boolean lock;
 
     @OneToOne
-    private User user;
+    private UserEntity user;
 
 }
