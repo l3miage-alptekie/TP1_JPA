@@ -1,12 +1,10 @@
 package fr.uga.l3miage.tp1.exo2.models;
 
-
 import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Entity
 public class User {
-
     @Id
     private Long idUser;
 
@@ -14,10 +12,7 @@ public class User {
 
     private OffsetDateTime lastConnexion;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private Session session;
-
-
-
 
 }

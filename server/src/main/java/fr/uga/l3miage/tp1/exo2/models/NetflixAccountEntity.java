@@ -15,7 +15,7 @@ public class NetflixAccountEntity {
     @Enumerated(EnumType.STRING)
     private typeAccount typeAccount;
 
-    @OneToOne(mappedBy = "netflix_account")
-    private NetflixUserEntity uuid_user;
+    @OneToOne
+    private NetflixUserEntity UserEntity;
 
 }

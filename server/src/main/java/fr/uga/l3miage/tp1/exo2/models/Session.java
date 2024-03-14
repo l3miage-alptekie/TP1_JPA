@@ -1,8 +1,8 @@
 package fr.uga.l3miage.tp1.exo2.models;
 
-
 import javax.persistence.*;
 import java.util.UUID;
+
 
 @Entity
 public class Session {
@@ -16,9 +16,7 @@ public class Session {
 
     private boolean lock;
 
-    @OneToOne(mappedBy = "session")
-    private User user_Id;
-
-
+    @OneToOne
+    private User user;
 
 }

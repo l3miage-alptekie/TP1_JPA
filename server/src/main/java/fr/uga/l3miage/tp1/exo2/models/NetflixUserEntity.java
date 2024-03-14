@@ -20,11 +20,7 @@ public class NetflixUserEntity {
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    @OneToOne
+    @OneToOne(mappedBy = "UserEntity")
     private NetflixAccountEntity netflix_account;
-
-
-
-
 
 }
